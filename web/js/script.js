@@ -3,7 +3,7 @@ $(document).ready(function(){
 	$('.next').live('click', function(event){
 		var page = $(this).attr('rel');
 		$(this).parent().remove();
-		$.get('/book/page/' + page, function(data) {
+		$.get('/book/list/page/' + page, function(data) {
 			$('#books tr:last').after(data);
 		});
 	});

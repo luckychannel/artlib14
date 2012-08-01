@@ -11,7 +11,16 @@ class bookActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->Books = BookPeer::doSelect(new Criteria());
+		$this->executeList($request);
+  }
+
+  public function executeList(sfWebRequest $request)
+  {
+		$pager = new sfPropelPager('Book', 10);
+		$pager->setPage($request->getParameter('page', 1));
+		$pager->setPeerMethod('doSelect');
+		$pager->init();
+		$this->pager = $pager;
   }
 
   public function executeShow(sfWebRequest $request)

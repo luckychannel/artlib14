@@ -6,11 +6,12 @@
 					</tr>
 				</thead>
 				<tbody>
-			    <?php foreach ($Books as $Book): ?>
-			    <tr class="book" rel="<?php echo $Book->getId(); ?>">
-			      <td><?php echo $Book->getId() ?></td>
-			      <td><?php echo $Book->getTitle() ?></td>
-			    </tr>
-			    <?php endforeach; ?>
+					<?php include_partial('book/list', array('books' => $pager->getResults())) ?>
+					<?php if ($pager->getPage() != $pager->getNextPage()): ?>
+						<tr>
+							<td colspan="2" class="next" rel="<?php echo $pager->getNextPage() ?>"><span>Показать еще</span></td>
+						</tr>
+					<?php endif; ?>
+
 				</tbody>
 			</table>

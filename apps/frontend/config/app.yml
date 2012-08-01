@@ -3,3 +3,6 @@
 
 # default values
 #all:
+
+all:
+  books_per_page: 10
