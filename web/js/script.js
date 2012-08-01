@@ -10,7 +10,7 @@ $(document).ready(function(){
 
 	$('.book').live('click', function(event){
 		var book = $(this).find('td:first').text();
-		$.get('/book/info/' + book, function(data) {
+		$.get('/book/info/id/' + book, function(data) {
 			$('#window .text').html(data);
 			var maskHeight = $(document).height();
 			var maskWidth = $(window).width();

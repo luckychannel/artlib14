@@ -20,6 +20,12 @@ class bookActions extends sfActions
     $this->forward404Unless($this->Book);
   }
 
+  public function executeInfo(sfWebRequest $request)
+  {
+    $this->Book = BookPeer::retrieveByPk($request->getParameter('id'));
+    $this->forward404Unless($this->Book);
+  }
+
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new BookForm();
